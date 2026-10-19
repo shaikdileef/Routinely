@@ -1,0 +1,186 @@
+.manageLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.progress > span {
+  flex-shrink: 0;
+}
+
+.progress strong {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.progress > div {
+  flex: 1;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 8px;
+  border-radius: var(--radius);
+  transition:
+    background var(--transition),
+    opacity var(--transition);
+}
+
+.row + .row {
+  border-top: 1px solid var(--border);
+}
+
+.row:hover {
+  background: var(--surface-hover);
+}
+
+.rowSaving {
+  opacity: 0.6;
+}
+
+/* Round checkbox in the daily task's own colour, a glossy bead when ticked. */
+.check {
+  appearance: none;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 2px solid var(--habit-color);
+  border-radius: 50%;
+  background: var(--surface);
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.check:hover {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--habit-color) 18%, transparent);
+}
+
+.check:checked {
+  background: var(--habit-color);
+  box-shadow:
+    var(--gloss),
+    0 6px 14px -6px var(--habit-color);
+}
+
+.check:checked::after {
+  content: '';
+  width: 6px;
+  height: 11px;
+  margin-top: -2px;
+  border: solid #fff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+
+.check:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+.check:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+
+.name {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  transition: color var(--transition);
+}
+
+.rowDone .name {
+  color: var(--text-3);
+  text-decoration: line-through;
+}
+
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 650;
+  color: var(--warning);
+}
+
+/* Last 30 days: filled = done, ring = missed, faint = not scheduled. */
+.dots {
+  display: grid;
+  grid-template-columns: repeat(30, minmax(0, 1fr));
+  gap: 3px;
+  max-width: 420px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dot {
+  aspect-ratio: 1;
+  max-width: 11px;
+  border-radius: 50%;
+}
+
+.dot.done {
+  background: var(--habit-color);
+}
+
+.dot.missed {
+  border: 1.5px solid color-mix(in srgb, var(--danger) 70%, transparent);
+}
+
+.dot.pending {
+  border: 1.5px dashed var(--habit-color);
+}
+
+.dot.off {
+  background: var(--chart-track);
+}
+
+/* Before the daily task existed: a faint track, so a new task's row still reads as 30 days. */
+.dot.before {
+  background: color-mix(in srgb, var(--chart-track) 45%, transparent);
+}

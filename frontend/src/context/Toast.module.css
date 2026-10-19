@@ -1,0 +1,62 @@
+.region {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(380px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 12px 12px 14px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass-strong);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  box-shadow: var(--shadow-lg), var(--highlight);
+  pointer-events: auto;
+  animation: slide 320ms var(--ease);
+}
+
+.success svg:first-child {
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+.error svg:first-child {
+  color: var(--danger);
+  flex-shrink: 0;
+}
+
+.message {
+  flex: 1;
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-3);
+}
+
+.close:hover {
+  background: var(--surface-hover);
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(24px) scale(0.98);
+  }
+}

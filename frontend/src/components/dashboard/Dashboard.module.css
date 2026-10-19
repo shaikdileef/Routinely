@@ -1,0 +1,156 @@
+.chart {
+  position: relative;
+}
+
+.chartSvg {
+  display: block;
+  overflow: visible;
+}
+
+.gridLine {
+  stroke: var(--chart-grid);
+  stroke-width: 1;
+}
+
+.axisText {
+  font-size: 10px;
+  fill: var(--text-3);
+}
+
+.axisEmphasis {
+  fill: var(--text);
+  font-weight: 600;
+}
+
+.bar {
+  fill: var(--chart-bar);
+  transition: fill 120ms ease;
+}
+
+.barMuted {
+  fill: var(--chart-bar-muted);
+}
+
+.barDimmed {
+  opacity: 0.45;
+}
+
+.barTrack {
+  fill: var(--chart-track);
+}
+
+.valueLabel {
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.reference line {
+  stroke: var(--text-3);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+.reference text {
+  font-size: 11px;
+  font-weight: 500;
+  fill: var(--text-2);
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legendTrack,
+.legendBar {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.legendTrack {
+  background: var(--chart-track);
+}
+
+.legendBar {
+  background: var(--chart-bar);
+}
+
+.tooltip {
+  position: absolute;
+  top: -6px;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.tooltip span {
+  color: var(--text-3);
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.heroDate {
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+.upcomingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.upcomingRow:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.upcomingTitle {
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: left;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.upcomingTitle:hover {
+  color: var(--accent-text);
+}

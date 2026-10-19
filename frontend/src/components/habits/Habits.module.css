@@ -1,0 +1,243 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.colorDot {
+  width: 12px;
+  height: 12px;
+  margin-top: 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.cardTitleWrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.cardMeta {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.streaks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.streaks > div {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.streaks svg {
+  align-self: center;
+}
+
+.streaks strong {
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.streaks span {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.flame {
+  color: var(--priority-high);
+}
+
+.trophy {
+  color: var(--warning);
+}
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.stripDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-2);
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.stripDay:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+.stripDay:disabled {
+  cursor: default;
+}
+
+.stripWeekday {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.stripMark {
+  display: grid;
+  place-items: center;
+  height: 18px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.isDone,
+.isDone .stripWeekday {
+  color: #fff;
+}
+
+.off {
+  background: transparent;
+  border-style: dashed;
+  opacity: 0.45;
+}
+
+.isToday:not(.isDone) {
+  border-color: var(--accent);
+}
+
+.pending {
+  opacity: 0.5;
+}
+
+.progressRows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progressText {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.history summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.heatmap {
+  display: flex;
+  gap: 3px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.heatCol {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cell {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-2);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.off {
+  background: transparent;
+  border-color: transparent;
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radioRow {
+  display: flex;
+  gap: 16px;
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.radio input {
+  accent-color: var(--accent);
+}
+
+.dayPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dayToggle {
+  min-width: 46px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-size: 13px;
+}
+
+.dayToggle[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 600;
+}

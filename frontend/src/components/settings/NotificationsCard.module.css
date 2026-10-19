@@ -1,0 +1,87 @@
+.intro {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.notice {
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  background: var(--warning-soft);
+  color: var(--warning);
+  font-size: 13px;
+}
+
+/* One glass panel per channel: switch, destination and a test button. */
+.channel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.channel > div {
+  width: 100%;
+}
+
+.switchRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}
+
+.channelName {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+/* Pill toggle that fills with the theme gradient when on. */
+.switch {
+  appearance: none;
+  position: relative;
+  flex-shrink: 0;
+  width: 44px;
+  height: 26px;
+  margin: 0;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  background: var(--chart-track);
+  box-shadow: inset 0 2px 4px rgb(60 50 120 / 0.12);
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    box-shadow var(--transition);
+}
+
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.2);
+  transition: transform 220ms var(--ease);
+}
+
+.switch:checked {
+  background: var(--accent-gradient);
+  box-shadow: var(--gloss), var(--accent-glow);
+}
+
+.switch:checked::after {
+  transform: translateX(18px);
+}
+
+.switch:focus-visible {
+  box-shadow: var(--focus-ring);
+}

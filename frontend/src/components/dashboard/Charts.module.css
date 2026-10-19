@@ -1,0 +1,231 @@
+/* ------------------------------ Pie / donut ------------------------------- */
+/* Capped and centred, so in a full-width card the legend stays next to the chart. */
+.pieLayout {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 460px;
+  margin-inline: auto;
+}
+
+.pieFigure {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.pieFigure svg {
+  display: block;
+  overflow: visible;
+}
+
+/* The gap between slices takes the card's own colour. */
+.slice {
+  stroke: var(--surface);
+  stroke-linejoin: round;
+  transition:
+    transform 220ms var(--ease),
+    opacity var(--transition);
+}
+
+.sliceDimmed {
+  opacity: 0.4;
+}
+
+.pieHole {
+  fill: var(--surface);
+}
+
+.pieCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  text-align: center;
+}
+
+.pieCenter strong {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.pieCenter span {
+  max-width: 70%;
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.pieTooltip {
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: var(--glass-strong);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-lg);
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.pieTooltip span {
+  color: var(--text-3);
+}
+
+.legend {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  margin: 0 -8px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  transition:
+    opacity var(--transition),
+    background var(--transition);
+}
+
+.legend li:hover {
+  background: var(--surface-hover);
+}
+
+.legendDimmed {
+  opacity: 0.5;
+}
+
+.legend i {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legendLabel {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.legendValue {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.legendValue small {
+  min-width: 32px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-3);
+  text-align: right;
+}
+
+.emptyChart {
+  display: grid;
+  place-items: center;
+  min-height: 148px;
+  color: var(--text-3);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* --------------------------------- Gauge ---------------------------------- */
+.gauge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.gaugeArc {
+  position: relative;
+}
+
+.gauge svg {
+  display: block;
+  overflow: visible;
+}
+
+.gaugeTrack {
+  fill: none;
+  stroke: var(--chart-track);
+  stroke-linecap: round;
+}
+
+.gaugeValue {
+  fill: none;
+  stroke-linecap: round;
+  filter: drop-shadow(0 4px 8px rgb(var(--accent-rgb) / 0.45));
+}
+
+/* After the entrance sweep, value changes (e.g. ticking off a task) glide instead of jumping. */
+.gaugeSettled {
+  transition: stroke-dasharray 700ms var(--ease);
+}
+
+.gaugeStopStart {
+  stop-color: rgb(var(--accent-rgb) / 0.55);
+}
+
+.gaugeStopEnd {
+  stop-color: var(--accent);
+}
+
+/* The readout sits inside the arc. */
+.gaugeReadout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gaugeReadout strong {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.gaugeReadout span {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.gaugeScale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--text-3);
+}

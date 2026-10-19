@@ -1,0 +1,29 @@
+.content {
+  width: 100%;
+  padding: 28px var(--page-gutter) 56px;
+}
+
+/* Focus is moved here for keyboard users after navigation; no visible ring on the whole page. */
+.content:focus,
+.content:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.page {
+  animation: page-in 360ms var(--ease);
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 960px) {
+  .content {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+}

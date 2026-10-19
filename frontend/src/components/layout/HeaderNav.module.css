@@ -1,0 +1,69 @@
+.nav {
+  height: var(--nav-height);
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* Fade the edges when the tabs scroll sideways on small screens. */
+  mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent);
+}
+
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 100%;
+  width: max-content;
+  margin: 0;
+  padding: 0 16px;
+  list-style: none;
+}
+
+.link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  color: var(--text-2);
+  font-size: 13.5px;
+  font-weight: 550;
+  white-space: nowrap;
+  transition:
+    color var(--transition),
+    background var(--transition);
+}
+
+.link:hover {
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface-hover) 70%, transparent);
+  text-decoration: none;
+}
+
+.active,
+.active:hover {
+  color: var(--text-on-accent);
+  background: transparent;
+}
+
+/* The glossy pill behind the active tab; it glides between tabs. */
+.indicator {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 38px;
+  margin-top: -19px;
+  border-radius: 999px;
+  background: var(--accent-gradient);
+  box-shadow: var(--gloss), var(--accent-glow);
+  transition:
+    transform 380ms var(--ease),
+    width 380ms var(--ease);
+  pointer-events: none;
+}

@@ -1,0 +1,93 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--text-2);
+  background: var(--surface-2);
+}
+
+.priority {
+  background: transparent;
+  padding: 0 4px;
+}
+
+.pLOW {
+  color: var(--priority-low);
+}
+
+.pMEDIUM {
+  color: var(--priority-medium);
+}
+
+.pHIGH {
+  color: var(--priority-high);
+}
+
+.pURGENT {
+  color: var(--priority-urgent);
+  font-weight: 650;
+}
+
+.status {
+  border: 1px solid var(--border);
+  background: transparent;
+}
+
+.sIN_PROGRESS {
+  border-color: transparent;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.sCOMPLETED {
+  border-color: transparent;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.category {
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.tag {
+  background: transparent;
+  padding: 0 2px;
+  color: var(--text-3);
+}
+
+.due {
+  background: transparent;
+  padding: 0 2px;
+}
+
+.u_overdue {
+  background: var(--danger-soft);
+  color: var(--danger);
+  padding: 0 8px;
+  font-weight: 600;
+}
+
+.u_today {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.u_tomorrow,
+.u_soon {
+  color: var(--warning);
+}
